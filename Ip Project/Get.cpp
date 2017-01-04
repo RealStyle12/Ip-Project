@@ -24,7 +24,10 @@ Vector2f translate ( Vector2f p, double angle, double m ) {
 //angle in degree
 double Get ( Vector2f pos, double angle ) {
     if ( !haveAttempts() )
-        return 0;
+        return 0;// No more attempts
+
+    if ( !isIn ( pos ) )
+        return -1;// position is outside the map
 
     numberOfTries++;
     double l = eps, r = maximumDistanceInMap, m;
