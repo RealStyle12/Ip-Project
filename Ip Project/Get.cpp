@@ -15,7 +15,7 @@ Vector2f translate ( Vector2f p, double angle, double m ) {
     return pos;
 }
 
-//angle in degree
+//angle in degrees
 double Get ( Vector2f pos, double angle ) {
     double l = 0, r = maximumDistanceInMap, m;
     angle  = angle * pi / 180.0;
