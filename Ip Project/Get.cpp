@@ -7,7 +7,13 @@ using namespace sf;
 
 const double pi = 3.1415926535897;
 const double eps = 0.000000001;
+int numberOfTries, maximumNumberOfTries = 100;
+void haveAttempts() {
+    if ( numberOfTries >= maximumNumberOfTries )
+        return 0;
 
+    return 1;
+}
 Vector2f translate ( Vector2f p, double angle, double m ) {
     Vector2f pos;
     pos.x = p.x + m * cos ( angle );
@@ -15,9 +21,13 @@ Vector2f translate ( Vector2f p, double angle, double m ) {
     return pos;
 }
 
-//angle in degrees
+//angle in degree
 double Get ( Vector2f pos, double angle ) {
-    double l = 0, r = maximumDistanceInMap, m;
+    if ( !haveAttempts() )
+        return 0;
+
+    numberOfTries++;
+    double l = eps, r = maximumDistanceInMap, m;
     angle  = angle * pi / 180.0;
     Vector2f newPos;
 
