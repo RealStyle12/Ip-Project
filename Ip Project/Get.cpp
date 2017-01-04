@@ -20,7 +20,9 @@ Vector2f translate ( Vector2f p, double angle, double m ) {
     pos.y = p.y + m * sin ( angle );
     return pos;
 }
-
+double min ( double x, double y ) {
+    return x < y ? x : y;
+}
 //angle in degree
 double Get ( Vector2f pos, double angle ) {
     if ( !haveAttempts() )
@@ -30,19 +32,26 @@ double Get ( Vector2f pos, double angle ) {
         return -1;// position is outside the map
 
     numberOfTries++;
-    double l = eps, r = maximumDistanceInMap, m;
+    double m, ret = 2000, i = 2000;
     angle  = angle * pi / 180.0;
     Vector2f newPos;
 
-    while ( l + eps < r ) {
-        m = ( l + r ) / 2;
-        newPos = translate ( pos, angle, m );
+    while ( i ) {
+        double l = eps, r = i;
 
-        if ( isIn ( newPos ) )
-            l = m;
-        else
-            r = m;
+        while ( l + eps < r ) {
+            m = ( l + r ) / 2;
+            newPos = translate ( pos, angle, m );
+
+            if ( isIn ( newPos ) )
+                l = m;
+            else
+                r = m;
+        }
+
+        ret = min ( ret, m );
+        i -= 100;
     }
 
-    return m;
+    return ret;
 }
