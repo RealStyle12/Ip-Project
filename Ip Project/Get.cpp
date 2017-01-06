@@ -8,7 +8,7 @@ using namespace sf;
 const double pi = 3.1415926535897;
 const double eps = 0.000000001;
 int numberOfTries, maximumNumberOfTries = 100;
-void haveAttempts() {
+bool haveAttempts() {
     if ( numberOfTries >= maximumNumberOfTries )
         return 0;
 
