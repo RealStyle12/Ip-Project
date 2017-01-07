@@ -6,7 +6,7 @@
 #include "Map.h"
 #include "Car.h"
 #include "Menu.h"
-#include "Box.h"
+#include "box.h"
 
 using namespace std;
 using namespace sf;
