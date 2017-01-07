@@ -1,7 +1,7 @@
 #include<iostream>
 #include<cmath>
 #include<cstdlib>
-#include<time>
+#include<ctime>
 #include <SFML/Graphics.hpp>
 #include "Map.h"
 #include "Car.h"
