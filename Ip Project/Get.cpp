@@ -62,7 +62,7 @@ bool onSegment(Vector2f a, Vector2f c, Vector2f b) {
 double crossProduct(Vector2f a, Vector2f c, Vector2f b) {
     return a.x * b.y + b.x * c.y + c.x * a.y - a.y * b.x - b.y * c.x - c.y * a.x;
 }
-bool intrsects(Vector2f a, Vector2f b, Vector2f c, Vector2f d) {
+bool intersects(Vector2f a, Vector2f b, Vector2f c, Vector2f d) {
     if(crossProduct(a, b, c)*crossProduct(a, b, d) < 0 && crossProduct(c, d, a)*crossProduct(c, d, b) < 0)
         return 1;
 
